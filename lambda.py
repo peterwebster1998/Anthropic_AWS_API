@@ -7,7 +7,6 @@ model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
 def llm_handler(event, context):
     try:
         body = json.loads(event.get("body", "{}"))
-        print("Body: ", body, "\n")
         messages = body.get("messages", [])
         response = bedrock.invoke_model(
             modelId = model_id,
